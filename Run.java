@@ -12,8 +12,11 @@ public class Run
 		
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("\n\n-- Welcome to Contact details portal --");
-		System.out.println("This setup will guide you to do all actions on your contact list");
 		
+		
+		do{
+		 
+		System.out.println("This setup will guide you to do all actions on your contact list");
 		System.out.println("\nEnter: ");
 		System.out.println("1 - Create New Contact");
 		System.out.println("2 - Delete Existing Contact");
@@ -21,8 +24,14 @@ public class Run
 		System.out.println("4 - Display particular contacts");
 		System.out.println("5 - Search for a particular contact");
 		
-		int choice;
-		choice= Integer.parseInt(br.readLine());
+		int choice = 0;
+		try{
+			choice= Integer.parseInt(br.readLine());
+		}
+		catch(IOException e){
+			System.out.println("Please enter a valid integer.");
+		}	
+		
 		switch(choice)
 		{
 			case 1: System.out.println("\n\n");
@@ -32,9 +41,13 @@ public class Run
 					System.out.println("2- Personal Contact");
 					System.out.println("3- Professional Contact");
 					System.out.println("4- Casual Contact");
-					int choice1;
-					choice1 = Integer.parseInt(br.readLine());
-					
+					int choice1 = 0;
+					try {
+						choice1 = Integer.parseInt(br.readLine());
+					}
+					catch(Exception e){
+						System.out.println("Please enter a valid integer.");
+					}
 					switch(choice1)
 					{
 						case 1: Relatives cc1= new Relatives();
@@ -82,7 +95,13 @@ public class Run
 					System.out.println("2- Personal Contact");
 					System.out.println("3- Professional Contact");
 					System.out.println("4- Casual Contact");
-					choice1 = Integer.parseInt(br.readLine());
+					choice1 = 0;
+					try {
+						choice1 = Integer.parseInt(br.readLine());
+					}
+					catch(Exception e){
+						System.out.println("Please enter a valid integer.");
+					}
 					int nn;
 					
 					switch(choice1)
@@ -96,7 +115,13 @@ public class Run
 									cc1.display_basic();
 								}
 								System.out.println("\n-- Select the number of contact to delete --");
-								nn= Integer.parseInt(br.readLine());
+								nn= 0;
+								try{
+									nn= Integer.parseInt(br.readLine());
+								}
+								catch(Exception e){
+									System.out.println("Please enter a valid integer.");
+								}
 								rel.remove(nn-1);
 								System.out.println("Deleted. Relative contacts: "+ rel.capacity() + " in size");
 								break;
@@ -110,8 +135,13 @@ public class Run
 									cc2.display_basic();
 								}
 								System.out.println("\n-- Select the number of contact to delete --");
-								
-								nn= Integer.parseInt(br.readLine());
+								nn= 0;
+								try{
+									nn= Integer.parseInt(br.readLine());
+								}
+								catch(Exception e){
+									System.out.println("Please enter a valid integer.");
+								}
 								per.remove(nn-1);
 								System.out.println("Deleted. Personal contacts: "+ per.capacity() + " in size");
 								break;
@@ -125,8 +155,13 @@ public class Run
 									cc3.display_basic();
 								}
 								System.out.println("\n-- Select the number of contact to delete --");
-								
-								nn= Integer.parseInt(br.readLine());
+								nn= 0;
+								try{
+									nn= Integer.parseInt(br.readLine());
+								}
+								catch(Exception e){
+									System.out.println("Please enter a valid integer.");
+								}
 								pro.remove(nn-1);
 								System.out.println("Deleted. Professional contacts: "+ pro.capacity() + " in size");
 								break;
@@ -140,8 +175,13 @@ public class Run
 									cc4.display_basic();
 								}
 								System.out.println("\n-- Select the number of contact to delete --");
-								
-								nn= Integer.parseInt(br.readLine());
+								nn= 0;
+								try{
+									nn= Integer.parseInt(br.readLine());
+								}
+								catch(Exception e){
+									System.out.println("Please enter a valid integer.");
+								}
 								cas.remove(nn-1);
 								System.out.println("Deleted. Casual contacts: "+ cas.capacity() + " in size");
 								break;	
@@ -194,8 +234,13 @@ public class Run
 					System.out.println("2- Personal Contact");
 					System.out.println("3- Professional Contact");
 					System.out.println("4- Casual Contact");
-					choice1 = Integer.parseInt(br.readLine());
-					
+					choice1 = 0 ;
+					try{
+						choice1 = Integer.parseInt(br.readLine());
+					}
+					catch(Exception e){
+						System.out.println("Incorrect input");
+					}
 					switch(choice1)
 					{
 						case 1: //read rel from file
@@ -249,7 +294,14 @@ public class Run
 					int cho;
 					String srch;
 					boolean vv;
-					cho= Integer.parseInt(br.readLine());
+					cho = 0;
+					try{
+						cho= Integer.parseInt(br.readLine());
+					}
+					catch(Exception e){
+						System.out.println("Incorrect input");
+					}
+					
 					switch(cho)
 					{
 						case 1: System.out.println("Enter search query.");
@@ -300,7 +352,13 @@ public class Run
 						
 						
 						case 2: System.out.println("Enter search query.");
-								long src = Long.parseLong(br.readLine());
+								long src = 0;
+								try{
+									src = Long.parseLong(br.readLine());
+								}
+								catch(Exception e) {
+									System.out.println("Incorrect Data-type");
+								}
 								//read rel from file
 								vv = false;
 								for(int i = 0; i< rel.capacity(); i++){
@@ -397,8 +455,22 @@ public class Run
 			
 			default: System.out.println(" Incorrect choice. Please retry. "); 								 
 			
-		}
-		 	
-	}
+		} //switch ends here
+		
 	
-}
+		System.out.println("Do you wish to perform another task ? (1/0) ");
+		int ce = 0;
+		try{
+			ce = Integer.parseInt(br.readLine());
+		}
+		catch(Exception e){
+			System.out.println("Integer expected.");
+		}
+		
+		if( ce == 0 )
+			break;
+			
+		} while(true);     //end of do-while construct	
+		 	
+	}   // end of main
+}   //end of class

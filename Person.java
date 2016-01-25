@@ -15,11 +15,11 @@ public class Person
 	void basic_det(){
 		try{
 			System.out.println("\n\nEnter the basic details first.");
-			System.out.print("Name of contact:");
+			System.out.print("Name of contact: ");
 			name= br.readLine();
-			System.out.print("\nMobile number:");
+			System.out.print("\nMobile number: ");
 			mobile_no= Long.parseLong(br.readLine());
-			System.out.print("\nEmail ID:");
+			System.out.print("\nEmail ID: ");
 			email= br.readLine();
 		}
 		catch(Exception e){
