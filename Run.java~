@@ -51,7 +51,6 @@ public class Run
 					switch(choice1)
 					{
 						case 1: Relatives cc1= new Relatives();
-								rel.add(cc1);
 								cc1.basic_det();
 								cc1.get_det();
 								rel.addElement(cc1);
@@ -59,7 +58,6 @@ public class Run
 								break;
 								
 						case 2: Personal cc2= new Personal();
-								per.add(cc2);
 								cc2.basic_det();
 								cc2.get_det();
 								per.addElement(cc2);
@@ -67,7 +65,6 @@ public class Run
 								break;
 						
 						case 3: Professional cc3= new Professional();
-								pro.add(cc3);
 								cc3.basic_det();
 								cc3.get_det();
 								pro.addElement(cc3);
@@ -75,7 +72,6 @@ public class Run
 								break;
 						
 						case 4: Casual cc4= new Casual();
-								cas.add(cc4);
 								cc4.basic_det();
 								cc4.get_det();
 								cas.addElement(cc4);
@@ -107,9 +103,13 @@ public class Run
 					switch(choice1)
 					{
 						case 1: //read rel from file
-								System.out.println("Reading... Relative contacts: "+ rel.capacity() + " in size");
+								System.out.println("Reading... Relative contacts: "+ rel.size() + " in size");
+								if(rel.size() == 0){ 
+									System.out.println("No element to delete !!");
+									break;
+								}
 								Relatives cc1= new Relatives();
-								for(int i=0;i< rel.capacity(); i++){
+								for(int i=0;i< rel.size(); i++){
 									cc1= rel.elementAt(i);
 									System.out.println("Contact # "+ (i+1));
 									cc1.display_basic();
@@ -123,13 +123,17 @@ public class Run
 									System.out.println("Please enter a valid integer.");
 								}
 								rel.remove(nn-1);
-								System.out.println("Deleted. Relative contacts: "+ rel.capacity() + " in size");
+								System.out.println("Deleted. Relative contacts: "+ rel.size() + " in size");
 								break;
 								
 						case 2: //read per from file
-								System.out.println("Reading... Personal contacts: "+ per.capacity() + " in size");
+								System.out.println("Reading... Personal contacts: "+ per.size() + " in size");
+								if(per.size() == 0){ 
+									System.out.println("No element to delete !!");
+									break;
+								}
 								Personal cc2= new Personal();
-								for(int i=0;i< per.capacity(); i++){
+								for(int i=0;i< per.size(); i++){
 									cc2= per.elementAt(i);
 									System.out.println("Contact # "+ (i+1));
 									cc2.display_basic();
@@ -143,13 +147,17 @@ public class Run
 									System.out.println("Please enter a valid integer.");
 								}
 								per.remove(nn-1);
-								System.out.println("Deleted. Personal contacts: "+ per.capacity() + " in size");
+								System.out.println("Deleted. Personal contacts: "+ per.size() + " in size");
 								break;
 						
 						case 3: //read pro from file
-								System.out.println("Reading... Professional contacts: "+ pro.capacity() + " in size");
+								System.out.println("Reading... Professional contacts: "+ pro.size() + " in size");
+								if(pro.size() == 0){ 
+									System.out.println("No element to delete !!");
+									break;
+								}
 								Professional cc3= new Professional();
-								for(int i=0;i< pro.capacity(); i++){
+								for(int i=0;i< pro.size(); i++){
 									cc3= pro.elementAt(i);
 									System.out.println("Contact # "+ (i+1));
 									cc3.display_basic();
@@ -163,13 +171,17 @@ public class Run
 									System.out.println("Please enter a valid integer.");
 								}
 								pro.remove(nn-1);
-								System.out.println("Deleted. Professional contacts: "+ pro.capacity() + " in size");
+								System.out.println("Deleted. Professional contacts: "+ pro.size() + " in size");
 								break;
 						
 						case 4: //read cas from file
-								System.out.println("Reading... Casual contacts: "+ cas.capacity() + " in size");
+								System.out.println("Reading... Casual contacts: "+ cas.size() + " in size");
+								if(cas.size() == 0){ 
+									System.out.println("No element to delete !!");
+									break;
+								}
 								Casual cc4= new Casual();
-								for(int i=0;i< cas.capacity(); i++){
+								for(int i=0;i< cas.size(); i++){
 									cc4= cas.elementAt(i);
 									System.out.println("Contact # "+ (i+1));
 									cc4.display_basic();
@@ -183,7 +195,7 @@ public class Run
 									System.out.println("Please enter a valid integer.");
 								}
 								cas.remove(nn-1);
-								System.out.println("Deleted. Casual contacts: "+ cas.capacity() + " in size");
+								System.out.println("Deleted. Casual contacts: "+ cas.size() + " in size");
 								break;	
 						
 						default: System.out.println("Please enter valid credentials..\n");
@@ -199,28 +211,28 @@ public class Run
 					//read per from file
 					//read cas from file
 					System.out.println("\n-- Relatives --\n");
-					for(int i = 0; i< rel.capacity(); i++){
+					for(int i = 0; i< rel.size(); i++){
 						rel.elementAt(i).display_basic();
 						rel.elementAt(i).show_det();
 					}		
 					System.out.println("******************************");
 					
 					System.out.println("\n-- Personal Contacts --\n");
-					for(int i = 0; i< per.capacity(); i++){
+					for(int i = 0; i< per.size(); i++){
 						per.elementAt(i).display_basic();
 						per.elementAt(i).show_det();
 					}		
 					System.out.println("******************************");
 					
 					System.out.println("\n-- Professional Contacts --\n");
-					for(int i = 0; i< pro.capacity(); i++){
+					for(int i = 0; i< pro.size(); i++){
 						pro.elementAt(i).display_basic();
 						pro.elementAt(i).show_det();
 					}		
 					System.out.println("******************************");
 					
 					System.out.println("\n-- Casual Contacts --\n");
-					for(int i = 0; i< cas.capacity(); i++){
+					for(int i = 0; i< cas.size(); i++){
 						cas.elementAt(i).display_basic();
 						cas.elementAt(i).show_det();
 					}		
@@ -245,7 +257,7 @@ public class Run
 					{
 						case 1: //read rel from file
 								System.out.println("\n-- Relatives --\n");
-								for(int i = 0; i< rel.capacity(); i++){
+								for(int i = 0; i< rel.size(); i++){
 									rel.elementAt(i).display_basic();
 									rel.elementAt(i).show_det();
 								}		
@@ -254,7 +266,7 @@ public class Run
 								
 						case 2: //read per from file
 								System.out.println("\n-- Personal Contacts --\n");
-								for(int i = 0; i< per.capacity(); i++){
+								for(int i = 0; i< per.size(); i++){
 									per.elementAt(i).display_basic();
 									per.elementAt(i).show_det();
 								}		
@@ -263,7 +275,7 @@ public class Run
 						
 						case 3: //read pro from file
 								System.out.println("\n-- Professional Contacts --\n");
-								for(int i = 0; i< pro.capacity(); i++){
+								for(int i = 0; i< pro.size(); i++){
 									pro.elementAt(i).display_basic();
 									pro.elementAt(i).show_det();
 								}		
@@ -272,7 +284,7 @@ public class Run
 						
 						case 4: //read cas from file
 								System.out.println("\n-- Casual Contacts --\n");
-								for(int i = 0; i< cas.capacity(); i++){
+								for(int i = 0; i< cas.size(); i++){
 									cas.elementAt(i).display_basic();
 									cas.elementAt(i).show_det();
 								}		
@@ -308,7 +320,7 @@ public class Run
 								srch = br.readLine();
 								//read rel from file
 								 vv = false;
-								for(int i = 0; i< rel.capacity(); i++){
+								for(int i = 0; i< rel.size(); i++){
 									boolean v = rel.elementAt(i).search_name(srch);
 									if(v == true){
 										vv= true;
@@ -317,7 +329,7 @@ public class Run
 										rel.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< pro.capacity(); i++){
+								for(int i = 0; i< pro.size(); i++){
 									boolean v = pro.elementAt(i).search_name(srch);
 									if(v == true){
 										vv= true;
@@ -326,7 +338,7 @@ public class Run
 										pro.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< per.capacity(); i++){
+								for(int i = 0; i< per.size(); i++){
 									boolean v = per.elementAt(i).search_name(srch);
 									if(v == true){
 										vv= true;
@@ -335,7 +347,7 @@ public class Run
 										per.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< cas.capacity(); i++){
+								for(int i = 0; i< cas.size(); i++){
 									boolean v = cas.elementAt(i).search_name(srch);
 									if(v == true){
 										vv= true;
@@ -361,7 +373,7 @@ public class Run
 								}
 								//read rel from file
 								vv = false;
-								for(int i = 0; i< rel.capacity(); i++){
+								for(int i = 0; i< rel.size(); i++){
 									boolean v = rel.elementAt(i).search_number(src);
 									if(v == true){
 										vv= true;
@@ -370,7 +382,7 @@ public class Run
 										rel.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< pro.capacity(); i++){
+								for(int i = 0; i< pro.size(); i++){
 									boolean v = pro.elementAt(i).search_number(src);
 									if(v == true){
 										vv= true;
@@ -379,7 +391,7 @@ public class Run
 										pro.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< per.capacity(); i++){
+								for(int i = 0; i< per.size(); i++){
 									boolean v = per.elementAt(i).search_number(src);
 									if(v == true){
 										vv= true;
@@ -388,7 +400,7 @@ public class Run
 										per.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< cas.capacity(); i++){
+								for(int i = 0; i< cas.size(); i++){
 									boolean v = cas.elementAt(i).search_number(src);
 									if(v == true){
 										vv= true;
@@ -407,7 +419,7 @@ public class Run
 								srch = br.readLine();
 								//read rel from file
 								vv = false;
-								for(int i = 0; i< rel.capacity(); i++){
+								for(int i = 0; i< rel.size(); i++){
 									boolean v = rel.elementAt(i).search_email(srch);
 									if(v == true){
 										vv= true;
@@ -416,7 +428,7 @@ public class Run
 										rel.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< pro.capacity(); i++){
+								for(int i = 0; i< pro.size(); i++){
 									boolean v = pro.elementAt(i).search_email(srch);
 									if(v == true){
 										vv= true;
@@ -425,7 +437,7 @@ public class Run
 										pro.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< per.capacity(); i++){
+								for(int i = 0; i< per.size(); i++){
 									boolean v = per.elementAt(i).search_email(srch);
 									if(v == true){
 										vv= true;
@@ -434,7 +446,7 @@ public class Run
 										per.elementAt(i).show_det();
 									}	
 								}
-								for(int i = 0; i< cas.capacity(); i++){
+								for(int i = 0; i< cas.size(); i++){
 									boolean v = cas.elementAt(i).search_email(srch);
 									if(v == true){
 										vv= true;
@@ -452,8 +464,7 @@ public class Run
 						default: System.out.println("Incorrect choice");
 										
 					}
-			
-			default: System.out.println(" Incorrect choice. Please retry. "); 								 
+										 
 			
 		} //switch ends here
 		
@@ -472,5 +483,6 @@ public class Run
 			
 		} while(true);     //end of do-while construct	
 		 	
+		System.out.println("\nTHANK YOU !!\n\n"); 	
 	}   // end of main
 }   //end of class
