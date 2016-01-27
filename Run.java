@@ -118,6 +118,10 @@ public class Run
 								nn= 0;
 								try{
 									nn= Integer.parseInt(br.readLine());
+									while(nn <= 0 || nn > rel.size() ){
+										System.out.println("Input invalid. Enter another number.");
+										nn= Integer.parseInt(br.readLine());
+									}
 								}
 								catch(Exception e){
 									System.out.println("Please enter a valid integer.");
@@ -142,6 +146,10 @@ public class Run
 								nn= 0;
 								try{
 									nn= Integer.parseInt(br.readLine());
+									while(nn <= 0 || nn > per.size() ){
+										System.out.println("Input invalid. Enter another number.");
+										nn= Integer.parseInt(br.readLine());
+									}
 								}
 								catch(Exception e){
 									System.out.println("Please enter a valid integer.");
@@ -166,6 +174,10 @@ public class Run
 								nn= 0;
 								try{
 									nn= Integer.parseInt(br.readLine());
+									while(nn <= 0 || nn > pro.size() ){
+										System.out.println("Input invalid. Enter another number.");
+										nn= Integer.parseInt(br.readLine());
+									}
 								}
 								catch(Exception e){
 									System.out.println("Please enter a valid integer.");
@@ -190,6 +202,10 @@ public class Run
 								nn= 0;
 								try{
 									nn= Integer.parseInt(br.readLine());
+									while(nn <= 0 || nn > cas.size() ){
+										System.out.println("Input invalid. Enter another number.");
+										nn= Integer.parseInt(br.readLine());
+									}	
 								}
 								catch(Exception e){
 									System.out.println("Please enter a valid integer.");
