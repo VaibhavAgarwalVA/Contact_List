@@ -1,20 +1,76 @@
 import java.io.*;
 import java.util.*;
 
-public class Run
+public class Run implements java.io.Serializable                          //driver class
 {
 	public static Vector<Relatives>	rel= new Vector<Relatives>();
 	public static Vector<Personal>	per= new Vector<Personal>();
 	public static Vector<Professional>	pro= new Vector<Professional>();
 	public static Vector<Casual>	cas= new Vector<Casual>();
 	
-	public static void main(String args[])throws Exception{
+	public static void main(String args[])throws Exception {                   //driver function
 		
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("\n\n-- Welcome to Contact details portal --");
 		
 		
 		do{
+		
+			FileInputStream fileIn = new FileInputStream("reldata.ser");
+     	  	ObjectInputStream in = null; 
+  			File file = new File("reldata.ser");
+  			boolean isEmpty = file.length()<10;
+    	   	if(!isEmpty){
+    	  		in = new ObjectInputStream(new BufferedInputStream(fileIn));
+    	   		rel = (Vector<Relatives>) in.readObject();
+    	   	}
+			if(in!=null){
+				in.close();
+			}
+			fileIn.close();
+		 
+		 	fileIn = new FileInputStream("perdata.ser");
+     	  	in = null; 
+  			file = new File("perdata.ser");
+  			isEmpty = file.length()<10;
+    	   	if(!isEmpty){
+    	  		in = new ObjectInputStream(new BufferedInputStream(fileIn));
+    	   		per = (Vector<Personal>) in.readObject();
+    	   	}
+			if(in!=null){
+				in.close();
+			}
+			fileIn.close();
+			
+			fileIn = new FileInputStream("prodata.ser");
+     	  	in = null; 
+  			file = new File("prodata.ser");
+  			isEmpty = file.length()<10;
+    	   	if(!isEmpty){
+    	  		in = new ObjectInputStream(new BufferedInputStream(fileIn));
+    	   		pro = (Vector<Professional>) in.readObject();
+    	   	}
+			if(in!=null){
+				in.close();
+			}
+			fileIn.close();
+			
+			fileIn = new FileInputStream("casdata.ser");
+     	  	in = null; 
+  			file = new File("casdata.ser");
+  			isEmpty = file.length()<10;
+    	   	if(!isEmpty){
+    	  		in = new ObjectInputStream(new BufferedInputStream(fileIn));
+    	   		cas = (Vector<Casual>) in.readObject();
+    	   	}
+			if(in!=null){
+				in.close();
+			}
+			fileIn.close();
+		 
+		 
+		 
+		 
 		 
 		System.out.println("This setup will guide you to do all actions on your contact list");
 		System.out.println("\nEnter: ");
@@ -55,6 +111,16 @@ public class Run
 								cc1.get_det();
 								rel.addElement(cc1);
 								//push rel to file
+								try{	
+									FileOutputStream fileOut = new FileOutputStream("reldata.ser");
+									ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(fileOut));
+									out.writeObject(rel);
+									out.close();
+									fileOut.close();
+								}
+								catch(Exception e){
+									e.printStackTrace();
+								}
 								break;
 								
 						case 2: Personal cc2= new Personal();
@@ -62,6 +128,16 @@ public class Run
 								cc2.get_det();
 								per.addElement(cc2);
 								//push per to file
+								try{	
+									FileOutputStream fileOut = new FileOutputStream("perdata.ser");
+									ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(fileOut));
+									out.writeObject(per);
+									out.close();
+									fileOut.close();
+								}
+								catch(Exception e){
+									e.printStackTrace();
+								}
 								break;
 						
 						case 3: Professional cc3= new Professional();
@@ -69,6 +145,16 @@ public class Run
 								cc3.get_det();
 								pro.addElement(cc3);
 								//push pro to file
+								try{	
+									FileOutputStream fileOut = new FileOutputStream("prodata.ser");
+									ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(fileOut));
+									out.writeObject(pro);
+									out.close();
+									fileOut.close();
+								}
+								catch(Exception e){
+									e.printStackTrace();
+								}
 								break;
 						
 						case 4: Casual cc4= new Casual();
@@ -76,6 +162,16 @@ public class Run
 								cc4.get_det();
 								cas.addElement(cc4);
 								//push cas to file
+								try{	
+									FileOutputStream fileOut = new FileOutputStream("casdata.ser");
+									ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(fileOut));
+									out.writeObject(cas);
+									out.close();
+									fileOut.close();
+								}
+								catch(Exception e){
+									e.printStackTrace();
+								}
 								break;	
 						
 						default: System.out.println("Please enter valid credentials..\n");
@@ -483,6 +579,49 @@ public class Run
 										 
 			
 		} //switch ends here
+		
+		//file_writing
+		try{	
+			FileOutputStream fileOut = new FileOutputStream("reldata.ser");
+			ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(fileOut));
+			out.writeObject(rel);
+			out.close();
+			fileOut.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		try{	
+			FileOutputStream fileOut = new FileOutputStream("perdata.ser");
+			ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(fileOut));
+			out.writeObject(per);
+			out.close();
+			fileOut.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		try{	
+			FileOutputStream fileOut = new FileOutputStream("prodata.ser");
+			ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(fileOut));
+			out.writeObject(pro);
+			out.close();
+			fileOut.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		try{	
+			FileOutputStream fileOut = new FileOutputStream("casdata.ser");
+			ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(fileOut));
+			out.writeObject(cas);
+			out.close();
+			fileOut.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		
 	
 		System.out.println("Do you wish to perform another task ? (1/0) ");

@@ -1,15 +1,19 @@
 import java.io.*;
 import java.util.*;
 
-public final class Casual extends Person {
+public final class Casual extends Person implements java.io.Serializable
+{
 	private String when;
 	private String where;
 	private String how;
 	private String info;
 	
 	//methods
+	
+	//gets the details from the user
 	void get_det()
 	{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));	
 		try{
 			System.out.println("\n\nEnter the details for your casual contact.");
 			System.out.print("Enter in a few words when you met: ");
@@ -26,6 +30,7 @@ public final class Casual extends Person {
 		}	
 	}
 	
+	//shows details
 	void show_det()
 	{
 		System.out.println("When you met: "+ when);	

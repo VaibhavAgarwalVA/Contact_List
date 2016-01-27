@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public final class Personal extends Person 
+public final class Personal extends Person implements java.io.Serializable
 {
 	private String context;
 	private String events;
@@ -10,6 +10,7 @@ public final class Personal extends Person
 	//methods
 	void get_det()
 	{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));	
 		try{
 			System.out.println("\n\nEnter the details for your personal contact.");
 			System.out.print("Enter in a few words the context of your acquaintance: ");

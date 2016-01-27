@@ -1,18 +1,17 @@
 import java.io.*;
 import java.util.*;
 
-public class Person 
-{
-	
-	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));	
-	
+public class Person implements java.io.Serializable
+{	
 	//shared by all subclasses
 	protected String name;
 	protected long mobile_no;
 	protected String email;
 	
 	//methods
+	//gets the basic details shared by all subclasses
 	void basic_det(){
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));	
 		try{
 			System.out.println("\n\nEnter the basic details first.");
 			System.out.print("Name of contact: ");
@@ -27,6 +26,7 @@ public class Person
 		}
 	}
 	
+	//displays basic details
 	void display_basic(){
 		System.out.println("Name : "+ name);
 		System.out.println("Mobile Number : "+ mobile_no);

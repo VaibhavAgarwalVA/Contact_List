@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public final class Relatives extends Person
+public final class Relatives extends Person implements java.io.Serializable
 {
 	private String dob;
 	private String last_meet;
@@ -9,6 +9,7 @@ public final class Relatives extends Person
 	//methods
 	void get_det()
 	{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));	
 		try{
 			System.out.println("\n\nEnter the details for your relative.");
 			System.out.print("Enter the date of birth of the contact: ");
