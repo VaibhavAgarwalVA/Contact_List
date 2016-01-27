@@ -28,7 +28,7 @@ public class Run
 		try{
 			choice= Integer.parseInt(br.readLine());
 		}
-		catch(IOException e){
+		catch(Exception e){
 			System.out.println("Please enter a valid integer.");
 		}	
 		
